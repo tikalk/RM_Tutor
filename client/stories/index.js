@@ -13,6 +13,8 @@ import Result from './../src/components/Result';
 import WelcomeScreen from './../src/components/WelcomeScreen';
 import SearchPage from './../src/components/searchPage/SearchPage';
 import App from './../src/App';
+import CoursePage from './../src/components/myRoadmaps/CoursePage';
+import RoadmapsPage from './../src/components/myRoadmaps/RoadmapsPage';
 
 injectTapEventPlugin();
 
@@ -44,3 +46,48 @@ storiesOf('Result', module)
 
 storiesOf('App', module)
     .add('Normal', () =>  <MuiThemeProvider><App /></MuiThemeProvider>)
+
+storiesOf('Course Page', module)
+    .add('Normal', () =>  <MuiThemeProvider><CoursePage data={studentsMock}/></MuiThemeProvider>)
+
+storiesOf('Roadmaps Page', module)
+    .add('Normal', () =>  <MuiThemeProvider><RoadmapsPage data={roadmapsMock}/></MuiThemeProvider>)
+
+
+const studentsMock = [
+    {
+        name: 'Moshe',
+        progress: '3/5'
+    },
+    {
+        name: 'Dany',
+        progress: '8/9'
+    }
+];
+
+const roadmapsMock = [
+    {
+        title: "Title 3",
+        numberOfStudents: 5,
+        rating: 5,
+        graduates: 17
+    },
+    {
+        title: "Work 1",
+        numberOfStudents: 5,
+        rating: 5,
+        graduates: 17
+    },
+    {
+        title: "Hell 1",
+        numberOfStudents: 5,
+        rating: 5,
+        graduates: 17
+    },
+    {
+        title: "Cookie 1",
+        numberOfStudents: 5,
+        rating: 5,
+        graduates: 17
+    }
+];
