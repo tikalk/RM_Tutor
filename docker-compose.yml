@@ -1,0 +1,18 @@
+version: '2'
+services:
+  client:
+    build: client/.
+    ports:
+      - 3000:3000
+      - 5000:5000
+  db:
+    image: mysql:5.7.18
+    volumes:
+      - ./data/:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=tutor
+      - MYSQL_USER=tutor
+      - MYSQL_PASSWORD=tutor
+    ports:
+      - 3306:3306
