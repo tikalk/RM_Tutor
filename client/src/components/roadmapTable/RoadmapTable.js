@@ -17,7 +17,10 @@ const columns = [{
     {
     Header: 'Rating',
     accessor: 'rating',
-    Cell: props => <span><t-stars ref={el => this.stars = el} value={props.value} ></t-stars></span>
+    Cell: props =>  {
+        console.log('star props', props)
+        return <span><t-stars value={props.value} ></t-stars></span>;
+    }
 },];
 
 class RoadmapTable extends React.Component {
