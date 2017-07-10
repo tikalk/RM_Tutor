@@ -9,6 +9,7 @@ import ResultsContainer from './../ResultsContainer';
 import Search from './Search';
 import axios from 'axios';
 
+import TutorsTable from '../tutorsTable/tutorsTable';
 
 const mock = {
     defaultResults: {
@@ -146,7 +147,7 @@ class SearchPage extends React.Component {
 
                             :
                             <div>
-                                <Results data={this.state.searchResults} />
+                                <Results data={this.state.searchResults}/>
                             </div>
                     }
                 </div>

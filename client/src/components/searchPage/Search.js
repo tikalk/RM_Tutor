@@ -7,28 +7,26 @@ import TextField from 'material-ui/TextField';
 
 class Search extends React.Component {
     constructor(props) {
-        super();
+        super(props);
 
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     render() {
         console.log('Search props', this.props);
 
         return (
-             <div>
-                 {/*<input value={this.props.value}*/}
-                        {/*onChange={this.props.searchFunc}*/}
-                        {/*placeholder="Search" />*/}
-                 <TextField
-                     hintText="Search Roadmaps"
-                     fullWidth={true}
-                     onChange={this.props.searchFunc}
-                     value={this.props.value}
-                 />
-             </div>
+            <div>
+                {/*<input value={this.props.value}*/}
+                {/*onChange={this.props.searchFunc}*/}
+                {/*placeholder="Search" />*/}
+                <TextField
+                    hintText="Search Roadmaps"
+                    fullWidth={true}
+                    onChange={this.props.searchFunc}
+                    value={this.props.value}
+                />
+            </div>
         )
     }
 }

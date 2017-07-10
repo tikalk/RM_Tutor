@@ -18,6 +18,9 @@ import App from './../src/App';
 injectTapEventPlugin();
 
 
+import 'slim-js'
+require('webco/components/t-stars')
+
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Button', module)
