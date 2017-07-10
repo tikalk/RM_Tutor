@@ -26,7 +26,7 @@ public class RestClient {
 
             return EntityUtils.toString(response.getEntity());
         } catch (Exception e) {
-            return "Error";
+            return null;
         }
     }
 

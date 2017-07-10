@@ -19,10 +19,14 @@ public class AuthorService {
         String result = restClient.invokeGetApi("/roadmaps/q=" + query);
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.readValue(result, RoadmapResponse.class);
+            if (result != null) {
+                return mapper.readValue(result, RoadmapResponse.class);
+            } else {
+                return new RoadmapResponse("Error invoking external service");
+            }
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            return new RoadmapResponse("Error invoking external service");
         }
     }
 }
