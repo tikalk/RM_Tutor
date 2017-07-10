@@ -4,13 +4,14 @@
 
 import React from 'react';
 import Result from './../Result';
+import Results from './../Results';
 import Search from './Search';
 
 const mock = {
     defaultResults: {
         popular: [
             {
-                title: "Title 2",
+                title: "Title 3",
                 author: "Oren",
                 rating: 5,
                 desc: "Description"
@@ -84,33 +85,9 @@ class SearchPage extends React.Component {
                         this.state.view === 'default' ?
                             <div>
                                 <h3>Popular</h3>
-                                {
-                                    this.state.defaultResults.popular.map((obj, k) => {
-                                        const {title, author, rating, desc} = obj;
-                                        return (
-                                            <Result title={title}
-                                                    author={author}
-                                                    rating={rating}
-                                                    desc={desc}
-                                                    key={k}
-                                            />
-                                        )
-                                    })
-                                }
+                                <Results data={this.state.defaultResults.popular}/>
                                 <h3>Latest</h3>
-                                {
-                                    this.state.defaultResults.latest.map((obj, k) => {
-                                        const {title, author, rating, desc} = obj;
-                                        return (
-                                            <Result title={title}
-                                                    author={author}
-                                                    rating={rating}
-                                                    desc={desc}
-                                                    key={k}
-                                            />
-                                        )
-                                    })
-                                }
+                                <Results data={this.state.defaultResults.latest}/>
                             </div>
 
                             :
