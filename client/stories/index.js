@@ -2,7 +2,7 @@
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import React from 'react';
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
@@ -12,7 +12,6 @@ import { Button, Welcome } from '@storybook/react/demo';
 import Result from './../src/components/Result';
 import WelcomeScreen from './../src/components/WelcomeScreen';
 import SearchPage from './../src/components/searchPage/SearchPage';
-import SearchBox from './../src/components/SearchBox';
 import App from './../src/App';
 
 injectTapEventPlugin();
@@ -20,6 +19,12 @@ injectTapEventPlugin();
 
 import 'slim-js'
 require('webco/components/t-stars')
+
+const wrapModule = (module) => (
+    <MuiThemeProvider>
+        React.cloneElement(module)
+    </MuiThemeProvider>
+);
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -31,14 +36,11 @@ storiesOf('Welcome Screen', module)
     .add('normal', () => <WelcomeScreen />);
 
 storiesOf('Search Roadmaps', module)
-    .add('normal', () => <SearchPage />);
+    .add('normal', () =>  <MuiThemeProvider><SearchPage /></MuiThemeProvider>);
 
 storiesOf('Result', module)
-    .add('Wide', () => <Result title="Title" author="Author" rating="4" desc="Lorem Ipsum...." />)
-    .add('Narrow', () => <Result title="Title" author="Author" rating="4" desc="Lorem Ipsum...." />)
-
-storiesOf('SearchBox', module)
-    .add('SearchBox', () => <SearchBox />)
+    .add('Wide', () => <MuiThemeProvider><Result title="Title" author="Author" rating="4" desc="Lorem Ipsum...." /></MuiThemeProvider>)
+    .add('Narrow', () =>  <MuiThemeProvider><Result title="Title" author="Author" rating="4" desc="Lorem Ipsum...." /></MuiThemeProvider>)
 
 storiesOf('App', module)
-    .add('Normal', () => <App />)
+    .add('Normal', () =>  <MuiThemeProvider><App /></MuiThemeProvider>)
