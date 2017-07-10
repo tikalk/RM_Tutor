@@ -1,7 +1,7 @@
-package com.tikalk.service;
+package com.tikalk.tutor.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tikalk.dto.StudentResponse;
+import com.tikalk.tutor.dto.StudentResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

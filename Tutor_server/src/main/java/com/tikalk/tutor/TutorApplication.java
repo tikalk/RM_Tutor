@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * Created by gaashg on 10-Jul-17.
  */
 @Configuration
-@ComponentScan
+@ComponentScan (basePackages = {"com.tikalk.tutor"})
 @EnableAutoConfiguration
 @SpringBootApplication
 public class TutorApplication {

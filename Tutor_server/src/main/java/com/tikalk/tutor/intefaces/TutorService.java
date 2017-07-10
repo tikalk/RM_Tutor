@@ -1,6 +1,6 @@
-package com.tikalk.intefaces;
+package com.tikalk.tutor.intefaces;
 
-import com.tikalk.dto.TutorDto;
+import com.tikalk.tutor.dto.TutorDto;
 
 import java.util.List;
 

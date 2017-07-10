@@ -1,7 +1,7 @@
-package com.tikalk.service;
+package com.tikalk.tutor.service;
 
-import com.tikalk.dto.TutorDto;
-import com.tikalk.intefaces.TutorService;
+import com.tikalk.tutor.dto.TutorDto;
+import com.tikalk.tutor.intefaces.TutorService;
 import com.tikalk.tutor.data.TutorRepository;
 import com.tikalk.tutor.model.Tutor;
 import org.apache.commons.lang3.StringUtils;

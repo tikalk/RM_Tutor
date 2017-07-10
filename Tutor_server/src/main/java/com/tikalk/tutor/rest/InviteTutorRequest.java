@@ -1,4 +1,4 @@
-package com.tikalk.rest;
+package com.tikalk.tutor.rest;
 
 import org.hibernate.validator.constraints.NotBlank;
 

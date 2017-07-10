@@ -1,16 +1,12 @@
-package com.tikalk.service;
+package com.tikalk.tutor.service;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Created by yaniv on 10/07/2017.

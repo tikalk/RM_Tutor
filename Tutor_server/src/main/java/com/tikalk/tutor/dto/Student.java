@@ -1,4 +1,4 @@
-package com.tikalk.dto;
+package com.tikalk.tutor.dto;
 
 /**
  * Created by yaniv on 10/07/2017.

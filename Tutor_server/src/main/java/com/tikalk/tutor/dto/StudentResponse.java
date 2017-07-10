@@ -1,4 +1,4 @@
-package com.tikalk.dto;
+package com.tikalk.tutor.dto;
 
 import java.util.List;
 

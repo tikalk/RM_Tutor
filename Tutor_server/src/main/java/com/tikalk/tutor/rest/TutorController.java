@@ -1,8 +1,7 @@
-package com.tikalk.rest;
+package com.tikalk.tutor.rest;
 
-import com.tikalk.dto.TutorDto;
-import com.tikalk.intefaces.TutorService;
-import com.tikalk.tutor.model.Tutor;
+import com.tikalk.tutor.dto.TutorDto;
+import com.tikalk.tutor.intefaces.TutorService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
