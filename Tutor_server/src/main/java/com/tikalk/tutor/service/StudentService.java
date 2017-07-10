@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by yaniv on 10/07/2017.
  */
 @Service
-public class StudenService {
+public class StudentService {
     @Autowired
     private RestClient restClient;
 
