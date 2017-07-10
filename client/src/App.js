@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import Result from './components/Result';
 import SearchPage from './components/searchPage/SearchPage';
+import AppBar from 'material-ui/AppBar';
+import Drawer from './components/Drawer';
+import WelcomeScreen from './components/WelcomeScreen';
 
 const mock = [
     {
@@ -32,13 +35,60 @@ const mock = [
 ];
 
 class App extends Component {
+    constructor(props) {
+        super();
+
+        this.state = {
+            drawerOpened: false,
+            view: 'welcome'
+        };
+        this.openDrawer = this.openDrawer.bind(this);
+        this.openView = this.openView.bind(this);
+    }
+
+    openDrawer() {
+        this.setState({
+            drawerOpened: !this.state.drawerOpened
+        })
+    }
+
+    openView(type) {
+        const that = this;
+        return function () {
+            that.setState({
+                view: type
+            });
+        }
+    }
+
+    mainView(type) {
+        switch (type) {
+            case 'welcome':
+                return <WelcomeScreen />
+            case 'search':
+                return <SearchPage />
+            case 'roadmaps':
+                return <WelcomeScreen />
+            case 'trainings':
+                return <WelcomeScreen />
+            default:
+                return <WelcomeScreen/>
+        }
+    }
 
     render() {
         const data = mock;
 
         return (
             <div className="App">
-                <SearchPage/>
+                <AppBar title="Title"
+                        iconClassNameRight="muidocs-icon-navigation-expand-more"
+                        onLeftIconButtonTouchTap={this.openDrawer}
+                />
+                <Drawer open={this.state.drawerOpened}
+                        openView={this.openView}
+                />
+                {this.mainView(this.state.view)}
             </div>
         );
     }

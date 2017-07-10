@@ -1,3 +1,6 @@
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
@@ -10,6 +13,9 @@ import Result from './../src/components/Result';
 import WelcomeScreen from './../src/components/WelcomeScreen';
 import SearchPage from './../src/components/searchPage/SearchPage';
 import SearchBox from './../src/components/SearchBox';
+
+injectTapEventPlugin();
+
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 

@@ -1,11 +1,16 @@
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import 'slim-js'
-require('webco/components/t-stars')
+require('webco/components/t-stars');
 
-ReactDOM.render(<App />, document.getElementById('root'));
+injectTapEventPlugin();
+
+ReactDOM.render(<MuiThemeProvider><App /></MuiThemeProvider>, document.getElementById('root'));
 registerServiceWorker();
+
