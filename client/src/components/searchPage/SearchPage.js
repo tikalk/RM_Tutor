@@ -9,7 +9,7 @@ import ResultsContainer from './../ResultsContainer';
 import Search from './Search';
 import axios from 'axios';
 
-import CoursesTable from '../coursesTable/coursesTable';
+import TutorsTable from '../tutorsTable/tutorsTable';
 
 const mock = {
     defaultResults: {
