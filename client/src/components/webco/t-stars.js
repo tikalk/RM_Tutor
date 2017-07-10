@@ -1,4 +1,6 @@
-Slim.tag('t-stars', 
+declare var Slim;
+
+Slim.tag('t-stars',
 `
 <ul class="rating">
   <li id="1" class="star" click="handleClick">&star;</li>

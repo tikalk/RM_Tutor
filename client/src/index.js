@@ -8,6 +8,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import 'slim-js'
 
+require('./components/webco/t-stars');
+
 injectTapEventPlugin();
 
 ReactDOM.render(<MuiThemeProvider><App /></MuiThemeProvider>, document.getElementById('root'));
