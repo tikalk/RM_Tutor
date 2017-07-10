@@ -32,7 +32,7 @@ public class TutorController {
     }
 
     @RequestMapping(value = "/tutorByRoadmap", method = RequestMethod.GET)
-    public void tutorByRoadmap(@RequestParam String roadMapId, @RequestParam String tutorName) {
+    public void tutorByRoadmap(@RequestParam String roadmapId, @RequestParam String tutorName) {
 
     }
 

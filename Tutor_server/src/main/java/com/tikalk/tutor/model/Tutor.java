@@ -24,10 +24,10 @@ public class Tutor {
 
     @ElementCollection
     @CollectionTable(name = "tutors_roadmaps", joinColumns = @JoinColumn(name = "tutor_id"))
-    private List<Integer> roadmapsList;
+    private List<String> roadmapsList;
 
 
-    public Tutor(int id, String githubUsername, String firstName, String lastName, List<Integer> roadmapsList) {
+    public Tutor(int id, String githubUsername, String firstName, String lastName, List<String> roadmapsList) {
         this.id = id;
         this.githubUsername = githubUsername;
         this.firstName = firstName;
@@ -70,11 +70,11 @@ public class Tutor {
         this.lastName = lastName;
     }
 
-    public List<Integer> getRoadmapsList() {
+    public List<String> getRoadmapsList() {
         return roadmapsList;
     }
 
-    public void setRoadmapsList(List<Integer> roadmapsList) {
+    public void setRoadmapsList(List<String> roadmapsList) {
         this.roadmapsList = roadmapsList;
     }
 }

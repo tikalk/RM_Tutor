@@ -14,10 +14,10 @@ public class TutorDto {
 
     private String lastName;
 
-    private List<Integer> roadmapsList;
+    private List<String> roadmapsList;
 
 
-    public TutorDto(int id, String githubUsername, String firstName, String lastName, List<Integer> roadmapsList) {
+    public TutorDto(int id, String githubUsername, String firstName, String lastName, List<String> roadmapsList) {
         this.id = id;
         this.githubUsername = githubUsername;
         this.firstName = firstName;
@@ -60,11 +60,11 @@ public class TutorDto {
         this.lastName = lastName;
     }
 
-    public List<Integer> getRoadmapsList() {
+    public List<String> getRoadmapsList() {
         return roadmapsList;
     }
 
-    public void setRoadmapsList(List<Integer> roadmapsList) {
+    public void setRoadmapsList(List<String> roadmapsList) {
         this.roadmapsList = roadmapsList;
     }
 }
