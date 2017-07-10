@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css'
@@ -17,7 +19,7 @@ const columns = [{
     accessor: 'author'
 }];
 
-class TutorsTable extends React.Component {
+class RoadmapTable extends React.Component {
 
 
     constructor(props) {
@@ -27,12 +29,15 @@ class TutorsTable extends React.Component {
     }
 
     render(){
+        if (!this.props.data) {
+            return '';
+        }
         console.log('courses table', this.props);
-       return  <ReactTable
+        return  <ReactTable
             data={this.props.data}
             columns={columns}
         />
     }
 }
 
-export default TutorsTable;
+export default RoadmapTable;
