@@ -16,8 +16,8 @@ class Search extends React.Component {
         console.log('Search props', this.props);
 
         return (
-            <div class="SearchBox">
-                <div class="SearchBox-header">
+            <div className="SearchBox">
+                <div className="SearchBox-header">
                     Search for Roadmaps
                 </div>
                 <input value={this.props.value}
