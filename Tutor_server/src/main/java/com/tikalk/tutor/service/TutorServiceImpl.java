@@ -40,4 +40,17 @@ public class TutorServiceImpl implements TutorService {
                 .map(tutor -> new TutorDto(tutor.getId(), tutor.getGithubUsername(), tutor.getFirstName(), tutor.getLastName(), tutor.getRoadmapsList()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<TutorDto> findByRoadmapAndName(String roadmapId, String firstName, String lastName) throws Exception {
+        boolean firstNameEmpty = StringUtils.isEmpty(firstName);
+        boolean lastNameEmpty = StringUtils.isEmpty(lastName);
+
+        if (firstNameEmpty && lastNameEmpty)
+            throw new Exception("Both first and last names can't be null");
+
+
+        return null;
+
+    }
 }
