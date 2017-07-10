@@ -42,23 +42,22 @@ class App extends Component {
             drawerOpened: false,
             view: 'welcome'
         };
-        this.openDrawer = this.openDrawer.bind(this);
+        this.toggleDrawer = this.toggleDrawer.bind(this);
         this.openView = this.openView.bind(this);
     }
 
-    openDrawer() {
+    toggleDrawer() {
         this.setState({
             drawerOpened: !this.state.drawerOpened
         })
     }
 
     openView(type) {
-        const that = this;
-        return function () {
-            that.setState({
-                view: type
-            });
-        }
+        console.log('in App type', type);
+
+        this.setState({
+            view: type
+        });
     }
 
     mainView(type) {
@@ -83,10 +82,11 @@ class App extends Component {
             <div className="App">
                 <AppBar title="Title"
                         iconClassNameRight="muidocs-icon-navigation-expand-more"
-                        onLeftIconButtonTouchTap={this.openDrawer}
+                        onLeftIconButtonTouchTap={this.toggleDrawer}
                 />
                 <Drawer open={this.state.drawerOpened}
                         openView={this.openView}
+                        openFunc={this.toggleDrawer}
                 />
                 {this.mainView(this.state.view)}
             </div>

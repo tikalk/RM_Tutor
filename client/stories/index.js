@@ -13,6 +13,7 @@ import Result from './../src/components/Result';
 import WelcomeScreen from './../src/components/WelcomeScreen';
 import SearchPage from './../src/components/searchPage/SearchPage';
 import SearchBox from './../src/components/SearchBox';
+import App from './../src/App';
 
 injectTapEventPlugin();
 
@@ -35,3 +36,6 @@ storiesOf('Result', module)
 
 storiesOf('SearchBox', module)
     .add('SearchBox', () => <SearchBox />)
+
+storiesOf('App', module)
+    .add('Normal', () => <App />)

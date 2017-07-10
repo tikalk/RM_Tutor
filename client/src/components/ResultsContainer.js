@@ -6,7 +6,7 @@ import React from 'react';
 
 const ResultContainer = (props) => {
     return (
-        <div>
+        <div style={styles.container}>
             <h3 style={styles.h3}>{props.title}</h3>
             <div>
                 {props.children}
@@ -18,6 +18,9 @@ const ResultContainer = (props) => {
 export default ResultContainer;
 
 const styles = {
+    container: {
+        minWidth: '400px'
+    },
     h3: {
         color: 'red',
         backgroundColor: 'gray'

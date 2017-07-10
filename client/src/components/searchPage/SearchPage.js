@@ -135,7 +135,7 @@ class SearchPage extends React.Component {
                 <div>
                     {
                         this.state.searchResults.length === 0 ?
-                            <div>
+                            <div className="defaultResults" style={styles.defaultResults}>
                                 <ResultsContainer title="Popular">
                                     <Results data={this.state.defaultResults.popular}/>
                                 </ResultsContainer>
@@ -156,3 +156,13 @@ class SearchPage extends React.Component {
 }
 
 export default SearchPage;
+
+const styles = {
+    defaultResults: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+    }
+}
