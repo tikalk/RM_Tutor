@@ -5,7 +5,11 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "react-table": "^6.5.1"
+    "react-scripts": "1.0.10",
+    "slim-js": "^2.9.9",
+    "webco": "git+https://github.com/evyros/webco.git#master"
   },
   "scripts": {
     "start": "react-scripts start",
