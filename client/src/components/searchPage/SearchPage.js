@@ -3,13 +3,10 @@
  */
 
 import React from 'react';
-import Result from './../Result';
 import Results from './../Results';
 import ResultsContainer from './../ResultsContainer';
 import Search from './Search';
 import axios from 'axios';
-
-import TutorsTable from '../tutorsTable/tutorsTable';
 
 const mock = {
     defaultResults: {

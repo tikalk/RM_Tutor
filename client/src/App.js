@@ -6,6 +6,7 @@ import SearchPage from './components/searchPage/SearchPage';
 import AppBar from 'material-ui/AppBar';
 import Drawer from './components/Drawer';
 import WelcomeScreen from './components/WelcomeScreen';
+import RoadmapsPage from './components/myRoadmaps/RoadmapsPage';
 
 const mock = [
     {
@@ -40,7 +41,7 @@ class App extends Component {
 
         this.state = {
             drawerOpened: false,
-            view: 'welcome'
+            view: 'roadmaps'
         };
         this.toggleDrawer = this.toggleDrawer.bind(this);
         this.openView = this.openView.bind(this);
@@ -67,7 +68,7 @@ class App extends Component {
             case 'search':
                 return <SearchPage />
             case 'roadmaps':
-                return <WelcomeScreen />
+                return <RoadmapsPage />
             case 'trainings':
                 return <WelcomeScreen />
             default:
