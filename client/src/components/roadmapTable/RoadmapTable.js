@@ -8,16 +8,17 @@ const columns = [{
     Header: 'Title',
     accessor: 'title'
 }, {
-    Header: 'Description',
-    accessor: 'desc'
+    Header: 'Number of students',
+    accessor: 'numberOfStudents'
 },{
+    Header: 'Graduated',
+    accessor: 'graduates'
+},
+    {
     Header: 'Rating',
     accessor: 'rating',
     Cell: props => <span><t-stars ref={el => this.stars = el} value={props.value} ></t-stars></span>
-},{
-    Header: 'Author',
-    accessor: 'author'
-}];
+},];
 
 class RoadmapTable extends React.Component {
 
