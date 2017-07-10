@@ -2,6 +2,7 @@ package com.tikalk.tutor.rest;
 
 import com.tikalk.tutor.dto.*;
 import com.tikalk.tutor.intefaces.TutorService;
+import com.tikalk.tutor.rest.request.InviteTutorRequest;
 import com.tikalk.tutor.service.AuthorService;
 import com.tikalk.tutor.service.StudentService;
 import org.slf4j.Logger;
@@ -27,6 +28,9 @@ public class TutorController {
     @Resource
     private TutorService tutorService;
 
+
+    @RequestMapping (value = "", method = RequestMethod.POST)
+    public void add (@RequestBody @Validated AddTutorRequest )
 
     @RequestMapping(value = "/invite", method = RequestMethod.POST)
     public String inviteTutor(@RequestBody @Validated InviteTutorRequest inviteTutorRequest) {
