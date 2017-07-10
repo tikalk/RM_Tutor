@@ -7,6 +7,7 @@ import java.util.List;
  * Created by gaashg on 10-Jul-17.
  */
 @Entity
+@Table (name = "tutors")
 public class Tutor {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -21,7 +22,8 @@ public class Tutor {
     @Column (name = "last_name")
     private String lastName;
 
-    
+    @ElementCollection
+    @CollectionTable(name = "tutors_roadmaps", joinColumns = @JoinColumn(name = "tutor_id"))
     private List<Integer> roadmapsList;
 
 

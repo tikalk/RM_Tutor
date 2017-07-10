@@ -1,6 +1,6 @@
 package com.tikalk.rest;
 
-import com.tikalk.entity.Tutor;
+import com.tikalk.tutor.model.Tutor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
