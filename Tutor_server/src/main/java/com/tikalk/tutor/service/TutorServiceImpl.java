@@ -4,6 +4,7 @@ import com.tikalk.tutor.dto.TutorDto;
 import com.tikalk.tutor.intefaces.TutorService;
 import com.tikalk.tutor.data.TutorRepository;
 import com.tikalk.tutor.model.Tutor;
+import com.tikalk.tutor.rest.request.AddTutorRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -54,5 +55,13 @@ public class TutorServiceImpl implements TutorService {
 
         return null;
 
+    }
+
+    @Override
+    public void add(AddTutorRequest addTutorRequest) {
+        Tutor tutor = new Tutor(addTutorRequest.getGithubUsername(), addTutorRequest.getFirstName(),
+                addTutorRequest.getLastName(), addTutorRequest.getRoadMapIdsList());
+
+        tutorRepository.save(tutor);
     }
 }

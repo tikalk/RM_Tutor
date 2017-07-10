@@ -35,6 +35,13 @@ public class Tutor {
         this.roadmapsList = roadmapsList;
     }
 
+    public Tutor(String githubUsername, String firstName, String lastName, List<String> roadmapsList) {
+        this.githubUsername = githubUsername;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.roadmapsList = roadmapsList;
+    }
+
     public Tutor() {
     }
 

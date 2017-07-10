@@ -1,6 +1,7 @@
 package com.tikalk.tutor.intefaces;
 
 import com.tikalk.tutor.dto.TutorDto;
+import com.tikalk.tutor.rest.request.AddTutorRequest;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface TutorService {
     List<TutorDto> findByName(String firstName, String lastName);
 
     List<TutorDto> findByRoadmapAndName(String roadmapId, String firstName, String lastName) throws Exception;
+
+    void add(AddTutorRequest addTutorRequest);
 }

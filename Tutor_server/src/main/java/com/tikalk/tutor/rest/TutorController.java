@@ -2,6 +2,7 @@ package com.tikalk.tutor.rest;
 
 import com.tikalk.tutor.dto.*;
 import com.tikalk.tutor.intefaces.TutorService;
+import com.tikalk.tutor.rest.request.AddTutorRequest;
 import com.tikalk.tutor.rest.request.InviteTutorRequest;
 import com.tikalk.tutor.service.AuthorService;
 import com.tikalk.tutor.service.StudentService;
@@ -18,6 +19,7 @@ import java.util.List;
  * Created by yaniv on 10/07/2017.
  */
 @RestController
+@RequestMapping(value = "/tutor")
 public class TutorController {
     Logger logger = LoggerFactory.getLogger(TutorController.class);
     @Autowired
@@ -30,7 +32,10 @@ public class TutorController {
 
 
     @RequestMapping (value = "", method = RequestMethod.POST)
-    public void add (@RequestBody @Validated AddTutorRequest )
+    public @ResponseBody String add (@RequestBody @Validated AddTutorRequest addTutorRequest){
+        tutorService.add (addTutorRequest);
+        return "OK";
+    }
 
     @RequestMapping(value = "/invite", method = RequestMethod.POST)
     public String inviteTutor(@RequestBody @Validated InviteTutorRequest inviteTutorRequest) {
@@ -38,7 +43,7 @@ public class TutorController {
         return "OK";
     }
 
-    @RequestMapping(value = "/tutors", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public List<TutorDto> tutors(@RequestParam (required = false) String firstName, @RequestParam (required = false) String lastName) {
 
@@ -51,7 +56,7 @@ public class TutorController {
         return tutorService.findByRoadmapAndName(roadmapId, firstName, lastName);
     }
 
-    @RequestMapping(value = "/tutorFeedback", method = RequestMethod.GET)
+    @RequestMapping(value = "/feedback", method = RequestMethod.GET)
     public String tutorFeedback(@RequestParam String studentId, @RequestParam String tutorId,
                                 @RequestParam int rate,
                                 @RequestParam String comment) {
