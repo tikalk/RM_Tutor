@@ -5,6 +5,34 @@
 import React from 'react';
 import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import RoadmapTable from './../roadmapTable/RoadmapTable';
+
+const mock = [
+    {
+        title: "Title 3",
+        author: "Oren",
+        rating: 5,
+        desc: "Description"
+    },
+    {
+        title: "Title 1",
+        author: "Oren",
+        rating: 5,
+        desc: "Description"
+    },
+    {
+        title: "Title 1",
+        author: "Oren",
+        rating: 5,
+        desc: "Description"
+    },
+    {
+        title: "Title 1",
+        author: "Oren",
+        rating: 5,
+        desc: "Description"
+    }
+]
 
 class RoadmapsPage extends React.Component {
     constructor(props) {
@@ -15,8 +43,6 @@ class RoadmapsPage extends React.Component {
             courses: []
         };
     }
-
-
 
     render() {
         console.log('this.state', this.state);
@@ -33,7 +59,7 @@ class RoadmapsPage extends React.Component {
                 </CardMedia>
                 <CardMedia>
                     <div>
-                        Table goes here
+                        <RoadmapTable data={mock} />
                     </div>
                 </CardMedia>
             </Card>
