@@ -6,6 +6,9 @@ import React from 'react';
 import axios from 'axios';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RoadmapTable from './../roadmapTable/RoadmapTable';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import TextField from 'material-ui/TextField';
 
 const mock = [
     {
@@ -55,10 +58,13 @@ class RoadmapsPage extends React.Component {
         });
     }
 
+    handleChange = (event, index, value) => this.setState({entries: value});
+
+
     render() {
         console.log('this.state', this.state);
         const data = this.state.courses;
-        const filteredData = data.filter(o => o.title.toLowerCase().indexOf(this.state.filter.toLowerCase()) > -1);
+        const filteredData = data.filter(o => o.title.toLowerCase().indexOf(this.state.filter.toLowerCase()) > -1).slice(0, this.state.entries);
         // console.log('filteredData', filteredData);
 
         return (
@@ -68,12 +74,21 @@ class RoadmapsPage extends React.Component {
                     avatar="https://www.placecage.com/c/128/128"
                 />
                 <CardMedia>
-                    <div>
-                        <input placeholder="Mighty Filter"
+                    <div className="filterRow" style={styles.filterRow}>
+                        <TextField hintText="Mighty Filter"
                                onChange={this.filterChange}
                         />
+                        <SelectField floatingLabelText="Number of Entries"
+                                     value={this.state.entries}
+                                     onChange={this.handleChange}
+                        >
+                            {[5, 10, 20, 100].map((v, k) => {
+                                return (
+                                    <MenuItem key={k} value={v} primaryText={v} />
+                                )
+                            })}
+                        </SelectField>
                     </div>
-                    <div>Num Of entries goes here</div>
                 </CardMedia>
                 <CardMedia>
                     <div>
@@ -89,11 +104,10 @@ class RoadmapsPage extends React.Component {
 export default RoadmapsPage;
 
 const styles = {
-    defaultResults: {
-        width: '100%',
+    filterRow: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center'
     }
 };
