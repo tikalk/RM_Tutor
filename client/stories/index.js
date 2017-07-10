@@ -11,6 +11,9 @@ import WelcomeScreen from './../src/components/WelcomeScreen';
 import SearchPage from './../src/components/searchPage/SearchPage';
 import SearchBox from './../src/components/SearchBox';
 
+import 'slim-js'
+require('webco/components/t-stars')
+
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Button', module)
