@@ -10,27 +10,27 @@ import RoadmapTable from './../roadmapTable/RoadmapTable';
 const mock = [
     {
         title: "Title 3",
-        author: "Oren",
+        numberOfStudents: 5,
         rating: 5,
-        desc: "Description"
+        graduates: 17
     },
     {
-        title: "Title 1",
-        author: "Oren",
+        title: "Work 1",
+        numberOfStudents: 5,
         rating: 5,
-        desc: "Description"
+        graduates: 17
     },
     {
-        title: "Title 1",
-        author: "Oren",
+        title: "Hell 1",
+        numberOfStudents: 5,
         rating: 5,
-        desc: "Description"
+        graduates: 17
     },
     {
-        title: "Title 1",
-        author: "Oren",
+        title: "Cookie 1",
+        numberOfStudents: 5,
         rating: 5,
-        desc: "Description"
+        graduates: 17
     }
 ]
 
@@ -40,12 +40,26 @@ class RoadmapsPage extends React.Component {
 
         this.state = {
             entries: 10,
-            courses: []
+            courses: mock,
+            filter: ''
         };
+
+        this.filterChange = this.filterChange.bind(this);
+    }
+
+    filterChange(e) {
+        const val = e.target.value;
+
+        this.setState({
+            filter: val
+        });
     }
 
     render() {
         console.log('this.state', this.state);
+        const data = this.state.courses;
+        const filteredData = data.filter(o => o.title.toLowerCase().indexOf(this.state.filter.toLowerCase()) > -1);
+        // console.log('filteredData', filteredData);
 
         return (
             <Card>
@@ -54,12 +68,16 @@ class RoadmapsPage extends React.Component {
                     avatar="https://www.placecage.com/c/128/128"
                 />
                 <CardMedia>
-                    <div>Filter Goes Here</div>
+                    <div>
+                        <input placeholder="Mighty Filter"
+                               onChange={this.filterChange}
+                        />
+                    </div>
                     <div>Num Of entries goes here</div>
                 </CardMedia>
                 <CardMedia>
                     <div>
-                        <RoadmapTable data={mock} />
+                        <RoadmapTable data={filteredData}/>
                     </div>
                 </CardMedia>
             </Card>
