@@ -8,7 +8,7 @@ const columns = [{
     Header: 'Title',
     accessor: 'title'
 }, {
-    Header: 'Number of students',
+    Header: '# of students',
     accessor: 'numberOfStudents'
 },{
     Header: 'Graduated',
