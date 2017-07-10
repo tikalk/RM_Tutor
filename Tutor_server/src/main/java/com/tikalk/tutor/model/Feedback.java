@@ -9,68 +9,59 @@ import java.io.Serializable;
 @Entity
 @Table (name = "feedbacks")
 public class Feedback {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
 
-    @EmbeddedId
-    private FeedbackId id;
+    @Column (name = "github_username")
+    private String githubUsername;
 
-    @Column (name = "feedback")
-    private String feedback;
+    @Column (name = "student_id")
+    private String studentId;
 
-    public Feedback(FeedbackId id, String feedback) {
-        this.id = id;
-        this.feedback = feedback;
-    }
+    @Column (name = "rating")
+    private Integer rating;
 
-    public Feedback() {
-    }
+    @Column (name = "comment")
+    private String comment;
 
-    public FeedbackId getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(FeedbackId id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getFeedback() {
-        return feedback;
+    public String getGithubUsername() {
+        return githubUsername;
     }
 
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public void setGithubUsername(String githubUsername) {
+        this.githubUsername = githubUsername;
     }
 
-    @Embeddable
-    public class FeedbackId implements Serializable {
-        @Column (name = "student_id")
-        private Integer studentId;
-
-        @Column (name = "tutor_id")
-        private Integer tutorId;
-
-        public FeedbackId(Integer studentId, Integer tutorId) {
-            this.studentId = studentId;
-            this.tutorId = tutorId;
-        }
-
-        public FeedbackId() {
-        }
-
-        public Integer getStudentId() {
-            return studentId;
-        }
-
-        public void setStudentId(Integer studentId) {
-            this.studentId = studentId;
-        }
-
-        public Integer getTutorId() {
-            return tutorId;
-        }
-
-        public void setTutorId(Integer tutorId) {
-            this.tutorId = tutorId;
-        }
+    public String getStudentId() {
+        return studentId;
     }
 
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }

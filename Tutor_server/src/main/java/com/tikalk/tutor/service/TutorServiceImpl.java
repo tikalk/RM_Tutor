@@ -6,14 +6,17 @@ import com.tikalk.tutor.intefaces.TutorService;
 import com.tikalk.tutor.data.TutorRepository;
 import com.tikalk.tutor.model.Invite;
 import com.tikalk.tutor.model.InviteId;
+import com.tikalk.tutor.data.FeedbackRepository;
+import com.tikalk.tutor.model.Feedback;
 import com.tikalk.tutor.model.Tutor;
 import com.tikalk.tutor.rest.request.AddTutorRequest;
+import com.tikalk.tutor.rest.request.FeedbackRequest;
 import com.tikalk.tutor.rest.request.InviteTutorRequest;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import javax.persistence.Id;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +31,9 @@ public class TutorServiceImpl implements TutorService {
 
     @Resource
     private InviteRepository inviteRepository;
+
+    @Autowired
+    private FeedbackRepository feedbackRepository;
 
     @Override
     public List<TutorDto> findByName(String firstName, String lastName) {
@@ -88,4 +94,15 @@ public class TutorServiceImpl implements TutorService {
             inviteRepository.save(invite);
         });
     }
+
+    @Override
+    public void addTutorFeedback(FeedbackRequest feedbackRequest) {
+        Feedback feeback = new Feedback();
+        feeback.setStudentId(feedbackRequest.getStudentId());
+        feeback.setGithubUsername(feedbackRequest.getTutorId());
+        feeback.setRating(feedbackRequest.getRate());
+        feeback.setComment(feedbackRequest.getComment());
+        feedbackRepository.save(feeback);
+    }
+
 }

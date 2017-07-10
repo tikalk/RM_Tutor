@@ -2,6 +2,7 @@ package com.tikalk.tutor.intefaces;
 
 import com.tikalk.tutor.dto.TutorDto;
 import com.tikalk.tutor.rest.request.AddTutorRequest;
+import com.tikalk.tutor.rest.request.FeedbackRequest;
 import com.tikalk.tutor.rest.request.InviteTutorRequest;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface TutorService {
     void add(AddTutorRequest addTutorRequest);
 
     void inviteTutor(InviteTutorRequest inviteTutorRequest) throws Exception;
+
+    void addTutorFeedback(FeedbackRequest feedbackRequest);
 }
