@@ -60,6 +60,7 @@ public class TutorController {
     public String tutorFeedback(@RequestParam String studentId, @RequestParam String tutorId,
                                 @RequestParam int rate,
                                 @RequestParam String comment) {
+        tutorService.addTutorFeedback(studentId, tutorId, rate, comment);
 
         return "OK";
     }
