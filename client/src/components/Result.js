@@ -4,7 +4,7 @@
 import React from 'react';
 
 const Result = (props) => {
-    const {title = "Untitled", author = "Moshe Ben Kipud", rating = 4, desc = "This is a basic shit"} = props;
+    const {title = "Untitled", author = "Moshe Ben Kipod", rating = 4, desc = "This is a basic shit"} = props;
 
     return (
         <div>
