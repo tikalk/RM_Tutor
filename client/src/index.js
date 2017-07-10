@@ -7,7 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import 'slim-js'
-require('webco/components/t-stars');
 
 injectTapEventPlugin();
 
