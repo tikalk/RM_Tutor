@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 //apply plugin: 'org.springframework.boot' version '1.5.4.RELEASE'
-
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
@@ -20,6 +20,7 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile ("org.springframework.boot:spring-boot-starter-tomcat")
 // https://mvnrepository.com/artifact/org.springframework/spring-core
     compile group: 'org.springframework', name: 'spring-core', version: '4.3.9.RELEASE'
 // https://mvnrepository.com/artifact/org.springframework/spring-context
