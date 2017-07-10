@@ -1,14 +1,19 @@
 package com.tikalk.tutor.service;
 
+import com.tikalk.tutor.data.InviteRepository;
 import com.tikalk.tutor.dto.TutorDto;
 import com.tikalk.tutor.intefaces.TutorService;
 import com.tikalk.tutor.data.TutorRepository;
+import com.tikalk.tutor.model.Invite;
+import com.tikalk.tutor.model.InviteId;
 import com.tikalk.tutor.model.Tutor;
 import com.tikalk.tutor.rest.request.AddTutorRequest;
+import com.tikalk.tutor.rest.request.InviteTutorRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,6 +25,9 @@ public class TutorServiceImpl implements TutorService {
 
     @Resource
     private TutorRepository tutorRepository;
+
+    @Resource
+    private InviteRepository inviteRepository;
 
     @Override
     public List<TutorDto> findByName(String firstName, String lastName) {
@@ -63,5 +71,21 @@ public class TutorServiceImpl implements TutorService {
                 addTutorRequest.getLastName(), addTutorRequest.getRoadMapIdsList());
 
         tutorRepository.save(tutor);
+    }
+
+    @Override
+    public void inviteTutor(InviteTutorRequest inviteTutorRequest) throws Exception {
+
+        List<Tutor> tutorsList = tutorRepository.findAllById(inviteTutorRequest.getTutorIds().stream()
+                .map(id -> Integer.valueOf(id))
+                .collect(Collectors.toList()));
+
+        if (tutorsList.size() != inviteTutorRequest.getTutorIds().size())
+            throw new Exception("Not all tutors were found");
+
+        tutorsList.forEach(tutor -> {
+            Invite invite = new Invite(new InviteId(tutor.getId(), inviteTutorRequest.getRoadmapId()), false);
+            inviteRepository.save(invite);
+        });
     }
 }

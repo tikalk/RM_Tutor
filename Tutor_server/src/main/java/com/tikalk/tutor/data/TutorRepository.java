@@ -30,4 +30,6 @@ public interface TutorRepository extends JpaRepository <Tutor, Integer> {
     @Query (value = "Select t from Tutor t where t.lastName = :lastName")
     List<Tutor> fdindByLastName(@Param("lastName") String lastName);
 
+    @Query (value = "Select t from Tutor t where t.id in :tutorsIdsList")
+    List<Tutor> findAllById(@Param("tutorsIdsList") List<Integer> tutorIdsList);
 }

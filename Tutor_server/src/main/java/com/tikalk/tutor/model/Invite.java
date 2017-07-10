@@ -11,12 +11,12 @@ import java.io.Serializable;
 public class Invite {
 
     @EmbeddedId
-    private InvideId id;
+    private InviteId id;
 
     @Column (name = "accepted")
     private Boolean accepted;
 
-    public Invite(InvideId invideId, Boolean accepted) {
+    public Invite(InviteId invideId, Boolean accepted) {
         this.id = invideId;
         this.accepted = accepted;
     }
@@ -24,11 +24,11 @@ public class Invite {
     public Invite() {
     }
 
-    public InvideId getId() {
+    public InviteId getId() {
         return id;
     }
 
-    public void setId(InvideId id) {
+    public void setId(InviteId id) {
         this.id = id;
     }
 
@@ -40,36 +40,4 @@ public class Invite {
         this.accepted = accepted;
     }
 
-    @Embeddable
-    public class InvideId implements Serializable {
-        @Column (name = "tutor_id")
-        private Integer tutorId;
-
-        @Column (name = "roadmap_id")
-        private Integer roadmapId;
-
-        public InvideId(Integer tutorId, Integer roadmapId) {
-            this.tutorId = tutorId;
-            this.roadmapId = roadmapId;
-        }
-
-        public InvideId() {
-        }
-
-        public Integer getTutorId() {
-            return tutorId;
-        }
-
-        public void setTutorId(Integer tutorId) {
-            this.tutorId = tutorId;
-        }
-
-        public Integer getRoadmapId() {
-            return roadmapId;
-        }
-
-        public void setRoadmapId(Integer roadmapId) {
-            this.roadmapId = roadmapId;
-        }
-    }
 }

@@ -38,8 +38,8 @@ public class TutorController {
     }
 
     @RequestMapping(value = "/invite", method = RequestMethod.POST)
-    public String inviteTutor(@RequestBody @Validated InviteTutorRequest inviteTutorRequest) {
-
+    public String inviteTutor(@RequestBody @Validated InviteTutorRequest inviteTutorRequest) throws Exception {
+        tutorService.inviteTutor (inviteTutorRequest);
         return "OK";
     }
 

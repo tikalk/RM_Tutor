@@ -1,6 +1,7 @@
 package com.tikalk.tutor.rest.request;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,9 @@ import java.util.List;
 public class InviteTutorRequest {
     @NotBlank
     private String roadmapId;
-    private List<String> tutorIds = new ArrayList<>();
+
+    @NotEmpty
+    private List<String> tutorIds;
 
     public String getRoadmapId() {
         return roadmapId;
