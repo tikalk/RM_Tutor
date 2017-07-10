@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Result from './components/Result';
 
 const mock = [
     {
-        title: "Title 1",
+        title: "Title 2",
         author: "Oren",
         rating: 5,
         desc: "Description"
@@ -44,7 +44,7 @@ class App extends Component {
                 </div>
                 {data.map((obj, k) => {
                     return (
-                        <SearchResults title={obj.title}
+                        <Result title={obj.title}
                                        author={obj.author}
                                        rating={obj.rating}
                                        desc={obj.desc}
@@ -65,16 +65,4 @@ const Moshe = (props) => (
     <div>{props.name}</div>
 );
 
-const SearchResults = (props) => {
-    const {title = "Untitled", author = "Moshe Ben Kipud", rating = 4, desc = "This is a basic shit"} = props;
-
-    return (
-        <div>
-            <div className="title">{title}</div>
-            <div className="author">{author}</div>
-            <div className="rating">{rating}</div>
-            <div className="desc">{desc}</div>
-        </div>
-    )
-}
 
