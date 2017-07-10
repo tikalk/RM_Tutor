@@ -5,6 +5,7 @@
 import React from 'react';
 import Result from './../Result';
 import Search from './Search';
+import CoursesTable from '../coursesTable/coursesTable';
 
 const mock = {
     defaultResults: {
@@ -116,6 +117,7 @@ class SearchPage extends React.Component {
                             :
                             'Search Results'
                     }
+                    <CoursesTable data={this.state.defaultResults.latest}/>
                 </div>
             </div>
         )
