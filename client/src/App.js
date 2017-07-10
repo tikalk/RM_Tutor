@@ -40,7 +40,7 @@ class App extends Component {
                 <div className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Welcome to React!!!!</h2>
-                    <Moshe name="Oren"/>
+                    <Moshe name="hskjdfhkjsdhfsdkjhfkhjk hsjkh kskjhsfdjks fisfk "/>
                 </div>
                 {data.map((obj, k) => {
                     return (
