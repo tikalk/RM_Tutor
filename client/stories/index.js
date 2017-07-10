@@ -8,6 +8,7 @@ import { Button, Welcome } from '@storybook/react/demo';
 
 import Result from './../src/components/Result';
 import WelcomeScreen from './../src/components/WelcomeScreen';
+import SearchBox from './../src/components/SearchBox';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -21,3 +22,6 @@ storiesOf('Welcome Screen', module)
 storiesOf('Result', module)
     .add('Wide', () => <Result title="Title" author="Author" rating="4" desc="Lorem Ipsum...." />)
     .add('Narrow', () => <Result title="Title" author="Author" rating="4" desc="Lorem Ipsum...." />)
+
+storiesOf('SearchBox', module)
+    .add('SearchBox', () => <SearchBox />)
