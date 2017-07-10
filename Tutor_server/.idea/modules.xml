@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tutor_server.iml" filepath="$PROJECT_DIR$/.idea/modules/Tutor_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tutor_server.iml" filepath="$PROJECT_DIR$/Tutor_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tutor_server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Tutor_server_main.iml" group="Tutor_server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tutor_server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Tutor_server_test.iml" group="Tutor_server" />
     </modules>
   </component>
 </project>
