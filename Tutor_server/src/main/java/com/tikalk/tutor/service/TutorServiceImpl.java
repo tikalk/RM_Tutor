@@ -24,10 +24,17 @@ public class TutorServiceImpl implements TutorService {
     public List<TutorDto> findByName(String firstName, String lastName) {
         List<Tutor> tutorsList = null;
 
-        if (StringUtils.isEmpty(firstName) && StringUtils.isEmpty(lastName))
+        boolean firstNameEmpty = StringUtils.isEmpty(firstName);
+        boolean lastNameEmpty = StringUtils.isEmpty(lastName);
+
+        if (firstNameEmpty && lastNameEmpty)
             tutorsList = tutorRepository.findAll();
-        else
-            tutorsList = tutorRepository.findByName(firstName, lastName);
+        else if (!firstNameEmpty && !lastNameEmpty)
+            tutorsList = tutorRepository.findByFirstNameAndLastName(firstName, lastName);
+        else if (firstNameEmpty && !lastNameEmpty)
+            tutorsList = tutorRepository.findByLastName(lastName);
+        else if (!firstNameEmpty && lastNameEmpty)
+            tutorsList = tutorRepository.findByFirstName(firstName);
 
         return tutorsList.stream()
                 .map(tutor -> new TutorDto(tutor.getId(), tutor.getGithubUsername(), tutor.getFirstName(), tutor.getLastName(), tutor.getRoadmapsList()))

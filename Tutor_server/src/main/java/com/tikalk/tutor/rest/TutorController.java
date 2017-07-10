@@ -26,7 +26,7 @@ public class TutorController {
 
     @RequestMapping(value = "/tutors", method = RequestMethod.GET)
     @ResponseBody
-    public List<TutorDto> tutors(@RequestParam String firstName, @RequestParam String lastName) {
+    public List<TutorDto> tutors(@RequestParam (required = false) String firstName, @RequestParam (required = false) String lastName) {
 
         return tutorService.findByName (firstName, lastName);
     }

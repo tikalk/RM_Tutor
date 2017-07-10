@@ -12,6 +12,12 @@ import java.util.List;
  */
 public interface TutorRepository extends JpaRepository <Tutor, Integer> {
     @Query (value = "Select t from Tutor t where t.firstName = :firstName and t.lastName = :lastName")
-    List<Tutor> findByName(@Param("firstName") String firstName, @Param("lastName") String lastName);
+    List<Tutor> findByFirstNameAndLastName(@Param("firstName") String firstName, @Param("lastName") String lastName);
+
+    @Query (value = "Select t from Tutor t where t.firstName = :firstName")
+    List<Tutor> findByFirstName(@Param("firstName") String firstName);
+
+    @Query (value = "Select t from Tutor t where t.lastName = :lastName")
+    List<Tutor> findByLastName(@Param("lastName") String lastName);
 
 }
