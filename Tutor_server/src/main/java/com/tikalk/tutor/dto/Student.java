@@ -4,17 +4,17 @@ package com.tikalk.tutor.dto;
  * Created by yaniv on 10/07/2017.
  */
 public class Student {
-    private String id;
+    private String _id;
     private String name;
-    private String gitUser;
-    private String repository;
+    private String gitHubId;
+    private String gitRepo;
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -25,19 +25,19 @@ public class Student {
         this.name = name;
     }
 
-    public String getGitUser() {
-        return gitUser;
+    public String getGitHubId() {
+        return gitHubId;
     }
 
-    public void setGitUser(String gitUser) {
-        this.gitUser = gitUser;
+    public void setGitHubId(String gitHubId) {
+        this.gitHubId = gitHubId;
     }
 
-    public String getRepository() {
-        return repository;
+    public String getGitRepo() {
+        return gitRepo;
     }
 
-    public void setRepository(String repository) {
-        this.repository = repository;
+    public void setGitRepo(String gitRepo) {
+        this.gitRepo = gitRepo;
     }
 }

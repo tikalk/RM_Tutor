@@ -1,7 +1,12 @@
 package com.tikalk.tutor.rest;
 
-import com.tikalk.tutor.dto.TutorDto;
+import com.tikalk.tutor.dto.*;
 import com.tikalk.tutor.intefaces.TutorService;
+import com.tikalk.tutor.service.AuthorService;
+import com.tikalk.tutor.service.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +18,11 @@ import java.util.List;
  */
 @RestController
 public class TutorController {
+    Logger logger = LoggerFactory.getLogger(TutorController.class);
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private AuthorService authorService;
 
     @Resource
     private TutorService tutorService;
@@ -44,4 +54,25 @@ public class TutorController {
 
         return "OK";
     }
+
+    @RequestMapping(value = "/roadmapStudents", method = RequestMethod.GET)
+    public List<Student> roadmapStudents(@RequestParam String roadmapId){
+        StudentResponse studentByRoadmap = studentService.getStudentByRoadmap(roadmapId);
+        if (studentByRoadmap != null) {
+            return  studentByRoadmap.getStudentd();
+        }
+        logger.error("Failed to process roadmapStudents request");
+        return null;
+    }
+
+    @RequestMapping(value = "/roadmap", method = RequestMethod.GET)
+    public List<Roadmap> roadmap(@RequestParam String roadmap){
+        RoadmapResponse roadmapResponse = authorService.searchRoadmap(roadmap);
+        if (roadmapResponse != null) {
+            return  roadmapResponse.getRoadmapList();
+        }
+        logger.error("Failed to process roadmapStudents request");
+        return null;
+    }
+
 }
