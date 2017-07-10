@@ -4,6 +4,7 @@
 
 import React from 'react';
 import Result from './../Result';
+import Search from './Search';
 
 const mock = {
     defaultResults: {
@@ -77,11 +78,12 @@ class SearchPage extends React.Component {
 
         return (
             <div>
-                <div>Search Component Goes Here</div>
+                <Search/>
                 <div>
                     {
                         this.state.view === 'default' ?
                             <div>
+                                <h3>Popular</h3>
                                 {
                                     this.state.defaultResults.popular.map((obj, k) => {
                                         const {title, author, rating, desc} = obj;
@@ -95,9 +97,7 @@ class SearchPage extends React.Component {
                                         )
                                     })
                                 }
-                            </div>
-                            :
-                            <div>
+                                <h3>Latest</h3>
                                 {
                                     this.state.defaultResults.latest.map((obj, k) => {
                                         const {title, author, rating, desc} = obj;
@@ -112,6 +112,9 @@ class SearchPage extends React.Component {
                                     })
                                 }
                             </div>
+
+                            :
+                            'Search Results'
                     }
                 </div>
             </div>
