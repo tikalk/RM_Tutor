@@ -14,8 +14,14 @@ class Search extends React.Component {
     }
 
     render() {
+        console.log('Search props', this.props);
+
         return (
-            <div>search component</div>
+             <div>
+                 <input value={this.props.value}
+                        onChange={this.props.searchFunc}
+                        placeholder="Search" />
+             </div>
         )
     }
 }
