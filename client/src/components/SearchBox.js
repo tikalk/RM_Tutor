@@ -9,7 +9,7 @@ class SearchBox extends Component {
                     Search for Roadmaps
                 </div>
                 <input type="text" name="searchbox" />
-                <button type="button"></button>
+                <button type="button">Search</button>
             </div>
         )
     }
