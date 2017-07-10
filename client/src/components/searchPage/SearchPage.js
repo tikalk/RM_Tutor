@@ -139,16 +139,19 @@ class SearchPage extends React.Component {
                             <div>
                                 <ResultsContainer title="Popular">
                                     <Results data={this.state.defaultResults.popular}/>
+    <TutorsTable data={this.state.defaultResults.popular}/>
                                 </ResultsContainer>
                                 <ResultsContainer title="Latest">
                                     <Results data={this.state.defaultResults.latest}/>
+    <TutorsTable data={this.state.defaultResults.latest}/>
                                 </ResultsContainer>
                             </div>
 
                             :
                             <div>
                                 <Results data={this.state.searchResults} />
-                            </div>
+        <TutorsTable data={this.state.searchResults}/>
+    </div>
                     }
                 </div>
             </div>
