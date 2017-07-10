@@ -3,17 +3,28 @@
  */
 import React from 'react';
 
-const Result = (props) => {
-    const {title = "Untitled", author = "Moshe Ben Kipod", rating = 4, desc = "This is a basic shit"} = props;
+class Result extends React.Component {
 
-    return (
-        <div>
-            <div className="title" style={styles.title}>{title}</div>
-            <div className="author" style={styles.author}>{author}</div>
-            <div className="rating" style={styles.rating}>{rating}</div>
-            <div className="desc" style={styles.desc}>{desc}</div>
-        </div>
-    )
+    componentDidMount() {
+        this.stars.addEventListener("valueChanged", this.handleStarChange);
+    }
+
+    handleStarChange = (event) => {
+        console.log("Star changed:", event.detail);
+    }
+
+    render() {
+        const {title = "Untitled", author = "N/A", rating = 4, desc = "N/A"} = this.props;
+
+        return (
+            <div>
+                <div className="title" style={styles.title}>{title}</div>
+                <div className="author" style={styles.author}>{author}</div>
+                <t-stars ref={el => this.stars = el} value={rating} style={styles.rating}></t-stars>
+                <div className="desc" style={styles.desc}>{desc}</div>
+            </div>
+        )
+    }
 };
 
 export default Result;
