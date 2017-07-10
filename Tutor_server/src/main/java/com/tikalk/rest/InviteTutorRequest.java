@@ -1,5 +1,7 @@
 package com.tikalk.rest;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import java.util.List;
  * Created by yaniv on 10/07/2017.
  */
 public class InviteTutorRequest {
+    @NotBlank
     private String roadmapId;
     private List<String> tutorIds = new ArrayList<>();
 
