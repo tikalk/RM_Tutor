@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TutorServer.iml" filepath="$PROJECT_DIR$/TutorServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Tutor_server.iml" filepath="$PROJECT_DIR$/.idea/modules/Tutor_server.iml" />
     </modules>
   </component>
 </project>
