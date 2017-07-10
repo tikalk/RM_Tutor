@@ -58,11 +58,18 @@ public class TutorServiceImpl implements TutorService {
         if (firstNameEmpty && lastNameEmpty)
             throw new Exception("Both first and last names can't be null");
 
+        List<Tutor> tutorsList = null;
 
+        if (!firstNameEmpty && !lastNameEmpty)
+            tutorsList = tutorRepository.findByFirstNameAndLastNameAndRoadMapId(firstName, lastName, roadmapId);
+        else if (firstNameEmpty && !lastNameEmpty)
+            tutorsList = tutorRepository.findByLastNameAndRoadMapId(lastName, roadmapId);
+        else if (!firstNameEmpty && lastNameEmpty)
+            tutorsList = tutorRepository.findByFirstNameAndRoadMapId(firstName, roadmapId);
 
-
-        return null;
-
+        return tutorsList.stream()
+                .map(tutor -> new TutorDto(tutor.getId(), tutor.getGithubUsername(), tutor.getFirstName(), tutor.getLastName(), tutor.getRoadmapsList()))
+                .collect(Collectors.toList());
     }
 
     @Override

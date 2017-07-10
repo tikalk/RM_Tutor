@@ -50,7 +50,7 @@ public class TutorController {
         return tutorService.findByName (firstName, lastName);
     }
 
-    @RequestMapping(value = "/tutorByRoadmap", method = RequestMethod.GET)
+    @RequestMapping(value = "/byRoadmap", method = RequestMethod.GET)
     public List<TutorDto> tutorByRoadmap(@RequestParam String roadmapId, @RequestParam (required = false) String firstName,
                                @RequestParam (required = false) String lastName) throws Exception {
         return tutorService.findByRoadmapAndName(roadmapId, firstName, lastName);
