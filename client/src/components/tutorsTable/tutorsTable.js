@@ -10,7 +10,8 @@ const columns = [{
     accessor: 'desc'
 },{
     Header: 'Rating',
-    accessor: 'rating'
+    accessor: 'rating',
+    Cell: props => <span><t-stars ref={el => this.stars = el} value={props.value} ></t-stars></span>
 },{
     Header: 'Author',
     accessor: 'author'
