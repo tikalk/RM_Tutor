@@ -3,6 +3,7 @@ package com.tikalk.tutor.rest;
 import com.tikalk.tutor.dto.*;
 import com.tikalk.tutor.intefaces.TutorService;
 import com.tikalk.tutor.rest.request.AddTutorRequest;
+import com.tikalk.tutor.rest.request.FeedbackRequest;
 import com.tikalk.tutor.rest.request.InviteTutorRequest;
 import com.tikalk.tutor.service.AuthorService;
 import com.tikalk.tutor.service.StudentService;
@@ -57,10 +58,8 @@ public class TutorController {
     }
 
     @RequestMapping(value = "/feedback", method = RequestMethod.GET)
-    public String tutorFeedback(@RequestParam String studentId, @RequestParam String tutorId,
-                                @RequestParam int rate,
-                                @RequestParam String comment) {
-        tutorService.addTutorFeedback(studentId, tutorId, rate, comment);
+    public String tutorFeedback(FeedbackRequest feedbackRequest) {
+        tutorService.addTutorFeedback(feedbackRequest);
 
         return "OK";
     }
